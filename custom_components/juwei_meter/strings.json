@@ -1,0 +1,65 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "添加炬为电能表",
+        "description": "从已发现的蓝牙设备里选一台（当前 {count} 台可选）。设备必须正在广播才会出现；★ 标记的是疑似电能表，可反复添加多台。",
+        "data": {
+          "address": "设备"
+        }
+      },
+      "manual": {
+        "title": "手动输入 MAC 地址",
+        "description": "例如 00:00:00:12:C1:55。添加前请先停掉手机「炬为电能表」App 的服务，避免两边抢同一个 BLE 连接。",
+        "data": {
+          "address": "MAC 地址",
+          "name": "设备名称"
+        }
+      },
+      "confirm": {
+        "title": "确认设备与刷新设置",
+        "description": "设备地址：{address}。电能表约每秒推一帧；刷新间隔决定多久把最新数据写入 HA（1 秒为实时，调大可减轻数据库写入），BLE 连接始终保持不变。",
+        "data": {
+          "name": "设备名称",
+          "refresh_interval": "刷新间隔（秒，1~3600）",
+          "reconnect_interval": "断线重连间隔（秒，1~300）"
+        }
+      }
+    },
+    "error": {
+      "invalid_mac": "MAC 地址格式不正确，应为 XX:XX:XX:XX:XX:XX",
+      "already_configured": "这台设备已经添加过了"
+    },
+    "abort": {
+      "already_configured": "该设备已经添加过了",
+      "invalid_mac": "MAC 地址格式不正确"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "设备与刷新设置",
+        "description": "可以改选设备、改名，或调整刷新/重连间隔，保存后自动重连。多台设备请分别「添加集成」。",
+        "data": {
+          "address": "设备",
+          "name": "设备名称",
+          "refresh_interval": "刷新间隔（秒，1~3600）",
+          "reconnect_interval": "断线重连间隔（秒，1~300）"
+        }
+      },
+      "manual": {
+        "title": "手动输入 MAC 地址",
+        "data": {
+          "address": "MAC 地址",
+          "name": "设备名称",
+          "refresh_interval": "刷新间隔（秒，1~3600）",
+          "reconnect_interval": "断线重连间隔（秒，1~300）"
+        }
+      }
+    },
+    "error": {
+      "invalid_mac": "MAC 地址格式不正确，应为 XX:XX:XX:XX:XX:XX",
+      "already_configured": "这台设备已经被另一个条目使用了"
+    }
+  }
+}
